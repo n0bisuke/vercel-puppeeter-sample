@@ -38,7 +38,7 @@ if(process.env.AWS_LAMBDA_FUNCTION_VERSION){
 }
 
 module.exports = async (req, res) => {
-  const { URL } = req.query;
+  const { URL='https://twitter.com/n0bisuke' } = req.query;
   const dimensions = await run(puppeteer, chrome, URL);
   res.send(`${URL}のページタイトルは「${dimensions.title}」だよー!`);
 }
